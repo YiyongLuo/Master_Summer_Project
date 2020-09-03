@@ -244,9 +244,7 @@ if __name__ == '__main__':
                 'W3': decoder_dict['out1.weight'].T.numpy(),
                 'b3': decoder_dict['out1.bias'].T.numpy().reshape(1,input_dim),
                 'cov1': np.identity(input_dim)*4,
-                'mu1': np.array([0]*input_dim),
-                'cov2': np.identity(input_dim)*0.25,
-                'mu2': np.array([0]*input_dim)}
+                'mu1': np.array([0]*input_dim)}
         
     #### stan code
    sm = pystan.StanModel(file='VAE_SB_Stan_toy_example_MMD.stan')
