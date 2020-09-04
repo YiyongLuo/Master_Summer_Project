@@ -61,7 +61,7 @@ class Encoder(nn.Module):
         
     def forward(self, x):
         # x is of shape [batch_size, input_dim]
-        hidden1 = torch.sigmoid(self.linear1(x))
+        hidden1 = torch.tanh(self.linear1(x))
         # hidden1 is of shape [batch_size, hidden_dim1]
         z_mu = self.mu(hidden1)
         # z_mu is of shape [batch_size, z_dim]
@@ -80,7 +80,7 @@ class Decoder(nn.Module):
 
     def forward(self, x):
         # x is of shape [batch_size, z_dim]
-        hidden1 = torch.sigmoid(self.linear1(x))
+        hidden1 = torch.tanh(self.linear1(x))
         # hidden1 is of shape [batch_size, hidden_dim2]
         out1 = self.out1(hidden1)
         #ensure sum of 3 elements to be 1
