@@ -24,7 +24,7 @@ transformed parameters {
     matrix[1,m1] Z_;
     simplex[K] pi;
     Z_=to_matrix(Z,1,m1);
-    pi=softmax(to_vector((inv_logit(Z_*W1+b1))*W3+b3));         
+    pi=softmax(to_vector((tanh(Z_*W1+b1))*W3+b3));         
 }
 
 model {
